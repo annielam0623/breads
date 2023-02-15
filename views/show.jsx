@@ -1,21 +1,26 @@
 const React = require('react')
 const Default = require('./layouts/default.jsx')
 
-function Show({bread}) {
+function Show({ bread, index }) {
     // console.log(bread.name)
-    return(
+    return (
         <Default>
             <h2>Show Page</h2>
             <h3>{bread.name}</h3>
             <p>
-                and it 
+                and it
                 {
-                    ? <span>does</span>
-                    : <span>does NOT</span>
+                    bread.hasGluten
+                    ? <span> does </span>
+                    : <span> does NOT </span>
                 }
                 have gluten.
             </p>
             <img src={bread.image} alt={bread.name} />
+            <form action={`/breads/${index}?_method=DELETE`} method="POST">
+                <input type='submit' value="DELETE"/>
+            </form>
+
             <li><a href="/breads">Go home</a></li>
         </Default>
     )
