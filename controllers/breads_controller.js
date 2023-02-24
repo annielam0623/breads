@@ -14,7 +14,6 @@ breads.get('/new', (req, res) => {
     })
 })
 
-
 // INDEX
 breads.get('/', (req, res) => {
   Baker.find()
@@ -117,7 +116,6 @@ breads.get('/:id/edit', (req, res) => {
         })
     })
 })
-
 
 //CREATE DELETE
 breads.delete('/:id', (req, res) => {
